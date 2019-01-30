@@ -17,3 +17,7 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 execute(['scrapy', 'crawl', 'comix'])
 ```
+
+* 关闭robot协议
+settings.py
+`ROBOTSTXT_OBEY = False`
