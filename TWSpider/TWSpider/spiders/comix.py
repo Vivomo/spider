@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from scrapy.http import Request
 
 
 class ComixSpider(scrapy.Spider):
@@ -18,6 +19,16 @@ class ComixSpider(scrapy.Spider):
         "Accept-Language": "zh-CN,zh;q=0.9",
         "Accept-Encoding": "gzip, deflate",
     }
+
+    def start_requests(self):
+        for url in self.start_urls:
+            yield Request(
+                url=url,
+                meta={
+                    "proxy": "http://127.0.0.1:1080"
+                },
+                callback=self.parse
+            )
 
     def parse(self, response):
         pass

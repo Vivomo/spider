@@ -18,5 +18,5 @@ class MmavSpider(scrapy.Spider):
         pass
 
     def parse_detail(self, response):
-        
+
         pass
